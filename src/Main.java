@@ -8,7 +8,6 @@ public class Main {
 
         System.out.println();
         System.out.println("*********************** Welcome to the Movie App! ***********************");
-        System.out.println();
         createMenu();
     }
 
@@ -107,11 +106,12 @@ public class Main {
     }
 
     private static void searchMovie() {
-        System.out.println("Enter the name of the movie you want to search for");
+        System.out.println("Enter the name of the movie you want to search for:");
         String name = scanner.nextLine();
         for (Movie movie : movies) {
             if (movie.getName().equalsIgnoreCase(name)) {
-                System.out.println(movie.getName() + " " + movie.getRating());
+                System.out.println();
+                System.out.println(movie.getName() + ":  " + movie.getRating());
                 return;
             }
         }
@@ -144,6 +144,7 @@ public class Main {
     }
 
     private static void displayChoices() {
+        System.out.println();
         System.out.println("1. Add movies");
         System.out.println("2. Display movies");
         System.out.println("3. Show the statistics");
@@ -152,17 +153,29 @@ public class Main {
         System.out.println("6. Delete the movie");
         System.out.println("7. Sort the movies");
         System.out.println("0. Exit");
+        System.out.println();
     }
 
     private static void displayMovies() {
-        System.out.println("**********");
+        System.out.println("****************************************");
+
         for (Movie movie : movies) {
             if (movie != null) {
                 System.out.println("Movie name: " + movie.getName());
                 System.out.println("Movie rating: " + movie.getRating());
+                System.out.println();
             }
+
+
         }
-        System.out.println("**********");
+
+        if (movies.length == 0) {
+            System.out.println();
+            System.out.println("No movies found in the app");
+            System.out.println();
+        }
+
+        System.out.println("****************************************");
     }
 
     private static void addMovie() {

@@ -17,6 +17,11 @@ public class Movie {
     }
 
     public void setRating(double rating) {
+        if (rating < 0 || rating > 10) {
+            System.out.println("Please enter rating between 0 and 10.");
+            return;
+        }
+
         this.rating = rating;
     }
 
