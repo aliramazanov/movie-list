@@ -5,7 +5,6 @@ public class Movie {
     private String name;
     private double rating;
 
-
     public String getName() {
         return name;
     }
@@ -44,7 +43,5 @@ public class Movie {
         return Objects.hash(name, rating);
     }
 
-    public Movie() {
-    }
 
 }
