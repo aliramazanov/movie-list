@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Movie {
 
     private String name;
@@ -30,6 +32,17 @@ public class Movie {
         this.rating = rating;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return Double.compare(rating, movie.rating) == 0 && Objects.equals(name, movie.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, rating);
+    }
 
     public Movie() {
     }

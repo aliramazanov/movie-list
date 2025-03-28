@@ -49,6 +49,7 @@ public class Main {
         }
 
         int n = arr.length;
+
         for (int i = 0; i < n - 1; i++) {
             int min_idx = i;
 
@@ -57,6 +58,7 @@ public class Main {
                     min_idx = j;
                 }
             }
+
             double temp = arr[i];
             arr[i] = arr[min_idx];
             arr[min_idx] = temp;
@@ -75,24 +77,30 @@ public class Main {
 
     private static void changeRatingOfMovie() {
         displayMovies();
+
         System.out.println("Enter the movie name you want to update its rating");
         String name = scanner.nextLine();
+
         System.out.println("Enter new rating");
         double newRating = scanner.nextDouble();
         scanner.nextLine();
+
         for (Movie movie : movies) {
             if (movie.getName().equalsIgnoreCase(name)) {
                 movie.setRating(newRating);
                 return;
             }
         }
+
         System.out.println("Movie not found!");
     }
 
     private static void deleteMovie() {
         System.out.println("Enter the movie name you want to delete");
         String name = scanner.nextLine();
+
         Movie[] newMovies = new Movie[movies.length - 1];
+
         int i = 0;
         for (Movie movie : movies) {
             if (movie.getName().equalsIgnoreCase(name)) {
@@ -108,6 +116,7 @@ public class Main {
     private static void searchMovie() {
         System.out.println("Enter the name of the movie you want to search for:");
         String name = scanner.nextLine();
+
         for (Movie movie : movies) {
             if (movie.getName().equalsIgnoreCase(name)) {
                 System.out.println();
@@ -115,6 +124,7 @@ public class Main {
                 return;
             }
         }
+
         System.out.println("Movie not found");
     }
 
@@ -123,6 +133,7 @@ public class Main {
         double sum = 0;
         double max = 0;
         double min = 10;
+
         for (Movie movie : movies) {
             sum += movie.getRating();
             min = Math.min(min, movie.getRating());
@@ -133,12 +144,13 @@ public class Main {
         for (Movie movie : movies) {
             if (movie.getRating() == max) {
                 System.out.println("The highest rated movie is: " + movie.getName());
-
             }
+
             if (movie.getRating() == min) {
                 System.out.println("The lowest rated movie is: " + movie.getName());
             }
         }
+
         System.out.println("The average rating of all movies is: " + sum / movies.length);
 
     }
@@ -165,8 +177,6 @@ public class Main {
                 System.out.println("Movie rating: " + movie.getRating());
                 System.out.println();
             }
-
-
         }
 
         if (movies.length == 0) {
@@ -195,10 +205,13 @@ public class Main {
         for (int i = 0; i < numberOfMovies; i++) {
             System.out.println("Enter a movie name");
             String name = scanner.nextLine();
+
             System.out.println("Enter a movie rating");
             double rating = scanner.nextDouble();
             scanner.nextLine();
+
             Movie movie = new Movie(name, rating);
+
             for (int j = 0; j < movies.length; j++) {
                 if (movies[j] == null) {
                     movies[j] = movie;
